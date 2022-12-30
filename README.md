@@ -32,7 +32,8 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 
 ```bash
 pip install ros-d2
-ros-d2 --help # prints help
+ros_d2 export --help # prints help
+# If you get an error about "No module named 'ros2cli'" - ros has not been sourced!
 ```
 
 ## Requirements
