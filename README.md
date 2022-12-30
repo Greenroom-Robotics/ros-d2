@@ -14,7 +14,7 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 ## Installation
 
 ```bash
-pip install ros_d2
+pip install ros-d2
 ```
 
 ## Requirements
