@@ -1,27 +1,58 @@
 # -*- coding: utf-8 -*-
 from ros_d2.helpers.convert import convert
-from ros_d2.helpers.node_info import NodeInfo, TopicInfo
+from ros_d2.helpers.get_ros_architecture import NodeInfo, RosArchitecture, TopicInfo
 
 
 def test_convert():
-    node_infos = [
-        NodeInfo(
-            node_name="node1",
-            subs=[],
-            pubs=[
-                TopicInfo(topic_name="topic1", topic_types=["std_msgs/String"]),
-                TopicInfo(topic_name="topic2", topic_types=["std_msgs/String"]),
-            ],
-        ),
-        NodeInfo(
-            node_name="node2",
-            subs=[
-                TopicInfo(topic_name="topic1", topic_types=["std_msgs/String"]),
-                TopicInfo(topic_name="topic2", topic_types=["std_msgs/String"]),
-            ],
-            pubs=[],
-        ),
-    ]
-    d2_graph = convert(node_infos)
+    ros_architecture = RosArchitecture(
+        nodes=[
+            NodeInfo(
+                name="node1",
+                subs=[],
+                pubs=[
+                    TopicInfo(name="topic1", types=["std_msgs/String"]),
+                    TopicInfo(name="topic2", types=["std_msgs/String"]),
+                ],
+            ),
+            NodeInfo(
+                name="node2",
+                subs=[
+                    TopicInfo(name="topic1", types=["std_msgs/String"]),
+                    TopicInfo(name="topic2", types=["std_msgs/String"]),
+                ],
+                pubs=[],
+            ),
+        ],
+        topics=[
+            TopicInfo(name="topic1", types=["std_msgs/String"]),
+            TopicInfo(name="topic2", types=["std_msgs/String"]),
+        ],
+    )
+    d2_graph = convert(ros_architecture)
 
-    assert d2_graph == ""
+    assert d2_graph == "\n".join(
+        [
+            "topic1: {",
+            "  shape: class",
+            "}",
+            "topic2: {",
+            "  shape: class",
+            "}",
+            "node1: {",
+            "  style: {",
+            "    opacity: 0.6",
+            "    3d: true",
+            "  }",
+            "}",
+            "node2: {",
+            "  style: {",
+            "    opacity: 0.6",
+            "    3d: true",
+            "  }",
+            "}",
+            "node1 <- topic1",
+            "node1 <- topic2",
+            "node2 -> topic1",
+            "node2 -> topic2",
+        ]
+    )

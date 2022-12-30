@@ -1,17 +1,23 @@
-/adder_3/output: {
+/adder_1/output: {
   shape: class
 }
 /adder_2/output: {
   shape: class
 }
-/input_1: {
+/adder_3/output: {
   shape: class
 }
-/adder_1/output: {
+/input_1: {
   shape: class
 }
 /input_2: {
   shape: class
+}
+/adder_1: {
+  style: {
+    opacity: 0.6
+    3d: true
+  }
 }
 /adder_2: {
   style: {
@@ -25,17 +31,11 @@
     3d: true
   }
 }
-/adder_1: {
-  style: {
-    opacity: 0.6
-    3d: true
-  }
-}
+/adder_1 -> /adder_3/output
+/adder_1 <- /adder_1/output
 /adder_2 -> /input_1
 /adder_2 -> /input_2
 /adder_2 <- /adder_2/output
 /adder_3 -> /adder_1/output
 /adder_3 -> /adder_2/output
 /adder_3 <- /adder_3/output
-/adder_1 -> /adder_3/output
-/adder_1 <- /adder_1/output
