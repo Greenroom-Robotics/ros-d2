@@ -1,17 +1,50 @@
+/adder_1/add: {
+  shape: class
+  topic: |
+    example_interfaces/srv/AddTwoInts
+  |
+}
 /adder_1/output: {
   shape: class
+  topic: |
+    example_interfaces/msg/Bool
+  |
+}
+/adder_2/add: {
+  shape: class
+  topic: |
+    example_interfaces/srv/AddTwoInts
+  |
 }
 /adder_2/output: {
   shape: class
+  topic: |
+    example_interfaces/msg/Bool
+  |
+}
+/adder_3/add: {
+  shape: class
+  topic: |
+    example_interfaces/srv/AddTwoInts
+  |
 }
 /adder_3/output: {
   shape: class
+  topic: |
+    example_interfaces/msg/Bool
+  |
 }
 /input_1: {
   shape: class
+  topic: |
+    example_interfaces/msg/Bool
+  |
 }
 /input_2: {
   shape: class
+  topic: |
+    example_interfaces/msg/Bool
+  |
 }
 /adder_1: {
   style: {
@@ -33,9 +66,12 @@
 }
 /adder_1 -> /adder_3/output
 /adder_1 <- /adder_1/output
+/adder_1 <- /adder_1/add
 /adder_2 -> /input_1
 /adder_2 -> /input_2
 /adder_2 <- /adder_2/output
+/adder_2 <- /adder_2/add
 /adder_3 -> /adder_1/output
 /adder_3 -> /adder_2/output
 /adder_3 <- /adder_3/output
+/adder_3 <- /adder_3/add

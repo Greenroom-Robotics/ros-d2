@@ -14,6 +14,7 @@ def generate_launch_description():
                     ("input_1", "adder_3/output"),
                     ("input_2", "adder_3/output"),
                     ("output", "adder_1/output"),
+                    ("add", "/adder_1/add"),
                 ],
             ),
             Node(
@@ -24,6 +25,7 @@ def generate_launch_description():
                     ("input_1", "input_1"),
                     ("input_2", "input_2"),
                     ("output", "adder_2/output"),
+                    ("add", "/adder_2/add"),
                 ],
             ),
             Node(
@@ -34,6 +36,7 @@ def generate_launch_description():
                     ("input_1", "adder_1/output"),
                     ("input_2", "adder_2/output"),
                     ("output", "adder_3/output"),
+                    ("add", "/adder_3/add"),
                 ],
             ),
         ]

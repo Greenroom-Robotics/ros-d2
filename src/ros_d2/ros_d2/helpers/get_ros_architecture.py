@@ -10,6 +10,15 @@ TOPICS_TO_IGNORE = [
     "/rosout",
 ]
 
+TOPIC_TYPES_TO_IGNORE = [
+    "rcl_interfaces/srv/ListParameters",
+    "rcl_interfaces/srv/SetParameters",
+    "rcl_interfaces/srv/GetParameterTypes",
+    "rcl_interfaces/srv/GetParameters",
+    "rcl_interfaces/srv/SetParametersAtomically",
+    "rcl_interfaces/srv/DescribeParameters",
+]
+
 
 @dataclass
 class TopicInfo:
@@ -27,6 +36,10 @@ class NodeInfo:
     subs: List[TopicInfo]
     # Node subscriber topics
     pubs: List[TopicInfo]
+    # Node services
+    services: List[TopicInfo]
+    # Node service clients
+    clients: List[TopicInfo]
 
 
 @dataclass
@@ -36,7 +49,11 @@ class RosArchitecture:
 
 
 def filter_topics(topics: List[TopicInfo]) -> List[TopicInfo]:
-    return [t for t in topics if t.name not in TOPICS_TO_IGNORE]
+    return [
+        t
+        for t in topics
+        if t.name not in TOPICS_TO_IGNORE and t.types[0] not in TOPIC_TYPES_TO_IGNORE
+    ]
 
 
 def topic_tuple_to_info(topic_tuple: Tuple[str, List[str]]) -> TopicInfo:
@@ -57,11 +74,21 @@ def get_ros_architecture() -> RosArchitecture:
             pubs_tuple = node.get_publisher_names_and_types_by_node(n.name, n.namespace)
             subs = [topic_tuple_to_info(t) for t in subs_tuple]
             pubs = [topic_tuple_to_info(t) for t in pubs_tuple]
+            services_tuple = node.get_service_names_and_types_by_node(
+                n.name, n.namespace
+            )
+            services = [topic_tuple_to_info(t) for t in services_tuple]
+            clients_tuple = node.get_client_names_and_types_by_node(n.name, n.namespace)
+            clients = [topic_tuple_to_info(t) for t in clients_tuple]
 
             subs = filter_topics(subs)
             pubs = filter_topics(pubs)
+            services = filter_topics(services)
+            clients = filter_topics(clients)
 
-            node_info = NodeInfo(name=node_name, subs=subs, pubs=pubs)
+            node_info = NodeInfo(
+                name=node_name, subs=subs, pubs=pubs, services=services, clients=clients
+            )
             nodes.append(node_info)
 
     # Get all the unique topics
@@ -76,6 +103,10 @@ def get_ros_architecture() -> RosArchitecture:
             if pub.name not in topic_names:
                 topic_names.add(pub.name)
                 topics.append(pub)
+        for srv in node_info.services:
+            if srv.name not in topic_names:
+                topic_names.add(srv.name)
+                topics.append(srv)
 
     # Order them alphabetically
     topics.sort(key=lambda t: t.name)

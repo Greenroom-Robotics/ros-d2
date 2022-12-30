@@ -13,6 +13,8 @@ def test_convert():
                     TopicInfo(name="topic1", types=["std_msgs/String"]),
                     TopicInfo(name="topic2", types=["std_msgs/String"]),
                 ],
+                services=[],
+                clients=[],
             ),
             NodeInfo(
                 name="node2",
@@ -21,6 +23,8 @@ def test_convert():
                     TopicInfo(name="topic2", types=["std_msgs/String"]),
                 ],
                 pubs=[],
+                services=[],
+                clients=[],
             ),
         ],
         topics=[

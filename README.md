@@ -11,10 +11,19 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 - [x] Simple serialisable diagram format
 - [ ] Ros node descriptions pulled from the package.xml
 - [ ] Topic QOS descriptions
-- [ ] Topic Types
+- [x] Topic Types
 - [ ] Advanced theming
 - [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram
 
+
+## Examples
+
+### Simple
+
+![Simple example](example_output/ros-diagram-dagre-verbose.svg)
+
+
+### More complex applications
 ![Example](example_output/ros-complex-example-dagre.svg)
 
 ## Installation
@@ -110,3 +119,7 @@ From the root of this repo:
 
   Elk:
   ![elk](example_output/ros-diagram-elk.svg)
+
+5. We can also export with more info using `ros_d2 export example_output/ros-diagram.d2`
+
+![dagre](example_output/ros-diagram-dagre-verbose.svg)
