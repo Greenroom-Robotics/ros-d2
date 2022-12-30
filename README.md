@@ -9,7 +9,13 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 - [x] Export runtime ROS2 system architecture to .d2 (using `ros2cli`)
 - [x] Powerful visualisation and theming provided by [D2](https://d2lang.com/tour/intro/)
 - [x] Simple serialisable diagram format
+- [ ] Ros node descriptions pulled from the package.xml
+- [ ] Topic QOS descriptions
+- [ ] Topic Types
+- [ ] Advanced theming
 - [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram
+
+![Example](example_output/ros-complex-example-dagre.svg)
 
 ## Installation
 
