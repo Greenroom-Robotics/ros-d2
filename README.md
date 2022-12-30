@@ -11,9 +11,11 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 - [x] Simple serialisable diagram format
 - [ ] Ros node descriptions pulled from the package.xml
 - [ ] Topic QOS descriptions
-- [x] Topic Types
+- [ ] Action servers / clients?
+- [x] Topic Types (`--verbose` flag)
 - [ ] Advanced theming
 - [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram
+- [ ] Better testing on this repo!
 
 
 ## Examples
