@@ -6,7 +6,7 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 
 ## Features
 
-- [x] Export runtime ROS2 system architecture to .d2 (using `ros2cli`)
+- [x] Export runtime ROS2 system architecture (nodes, services, topics, clients) to .d2 (using `ros2cli`)
 - [x] Powerful visualisation and theming provided by [D2](https://d2lang.com/tour/intro/)
 - [x] Simple serialisable diagram format
 - [ ] Ros node descriptions pulled from the package.xml
