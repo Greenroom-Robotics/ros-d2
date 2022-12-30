@@ -15,6 +15,7 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 
 ```bash
 pip install ros-d2
+ros-d2 --help # prints help
 ```
 
 ## Requirements
@@ -56,7 +57,7 @@ following the steps below to setup the project:
 
 ```bash
 # Clone the repository
-git clone git@github.com:Greenroom-Robotics/ros-d2.git && cd ros_d2
+git clone git@github.com:Greenroom-Robotics/ros-d2.git && cd ros-d2
 
 # Install all dependencies
 pip install -e ./src/ros_d2
