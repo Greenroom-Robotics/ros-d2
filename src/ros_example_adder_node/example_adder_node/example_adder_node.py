@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from example_interfaces.msg import Bool
+from example_interfaces.srv import AddTwoInts
 import rclpy
 from rclpy.node import Node
 
-from example_interfaces.msg import Bool
-from example_interfaces.srv import AddTwoInts
 
 SUBSCRIBER1_TOPIC = "/input_1"
 SUBSCRIBER2_TOPIC = "/input_2"
