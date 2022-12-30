@@ -56,7 +56,7 @@ following the steps below to setup the project:
 
 ```bash
 # Clone the repository
-git clone git@github.com:Greenroom-Robotics/ros_d2.git && cd ros_d2
+git clone git@github.com:Greenroom-Robotics/ros-d2.git && cd ros_d2
 
 # Install all dependencies
 pip install -e ./src/ros_d2
