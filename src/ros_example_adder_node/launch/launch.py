@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import launch
 from launch_ros.actions import Node
 

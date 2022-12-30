@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2016 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,11 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import rclpy
 from example_interfaces.msg import Bool
 from example_interfaces.srv import AddTwoInts
-import rclpy
 from rclpy.node import Node
-
 
 SUBSCRIBER1_TOPIC = "/input_1"
 SUBSCRIBER2_TOPIC = "/input_2"

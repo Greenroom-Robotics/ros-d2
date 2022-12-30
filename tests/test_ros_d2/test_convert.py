@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from ros_d2.helpers.convert import convert
 from ros_d2.helpers.node_info import NodeInfo, TopicInfo
+
 
 def test_convert():
     node_infos = [
@@ -23,5 +25,3 @@ def test_convert():
     d2_graph = convert(node_infos)
 
     assert d2_graph == ""
-
-    

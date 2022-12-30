@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 from typing import List
 
-from ros_d2.helpers.node_info import NodeInfo
 from py_d2.D2Connection import D2Connection, Direction
 from py_d2.D2Diagram import D2Diagram
-from py_d2.D2Style import D2Style
 from py_d2.D2Shape import D2Shape, Shape
+from py_d2.D2Style import D2Style
+
+from ros_d2.helpers.node_info import NodeInfo
 
 node_style = D2Style(
     opacity=0.6,
@@ -13,8 +15,7 @@ node_style = D2Style(
 
 
 def convert(node_infos: List[NodeInfo]) -> str:
-    """Converts a list of NodeInfo objects to a d2 graph"""
-
+    """Converts a list of NodeInfo objects to a d2 graph."""
     # Get all the unique topics
     topics_unique = set()
     for node_info in node_infos:
@@ -33,8 +34,20 @@ def convert(node_infos: List[NodeInfo]) -> str:
         shape = D2Shape(name=node_info.node_name, style=node_style)
         diagram.add_shape(shape)
         for sub in node_info.subs:
-            diagram.add_connection(D2Connection(shape_1=node_info.node_name, shape_2=sub.topic_name, direction=Direction.TO))
+            diagram.add_connection(
+                D2Connection(
+                    shape_1=node_info.node_name,
+                    shape_2=sub.topic_name,
+                    direction=Direction.TO,
+                )
+            )
         for pub in node_info.pubs:
-            diagram.add_connection(D2Connection(shape_1=node_info.node_name, shape_2=pub.topic_name, direction=Direction.FROM))
+            diagram.add_connection(
+                D2Connection(
+                    shape_1=node_info.node_name,
+                    shape_2=pub.topic_name,
+                    direction=Direction.FROM,
+                )
+            )
 
     return str(diagram)

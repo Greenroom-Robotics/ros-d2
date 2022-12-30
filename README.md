@@ -9,7 +9,7 @@ Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang
 - [x] Export runtime ROS2 system architecture to .d2 (using `ros2cli`)
 - [x] Powerful visualisation and theming provided by [D2](https://d2lang.com/tour/intro/)
 - [x] Simple serialisable diagram format
-- [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram 
+- [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram
 
 ## Installation
 
@@ -75,7 +75,7 @@ From the root of this repo:
   ```
 
 2. Let's bring up the example nodes:
-  
+
   ```bash
   source install/setup.sh
   ros2 launch ./src/ros_example_adder_node/launch/launch.py

@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 from dataclasses import dataclass
-from typing import List
-from typing import Tuple
+from typing import List, Tuple
 
 from ros2cli.node.strategy import NodeStrategy
 from ros2node.api import get_node_names
@@ -30,6 +30,7 @@ def filter_topics(topics: List[TopicInfo]) -> List[TopicInfo]:
 
 def topic_tuple_to_info(topic_tuple: Tuple[str, List[str]]) -> TopicInfo:
     return TopicInfo(topic_name=topic_tuple[0], topic_types=topic_tuple[1])
+
 
 def get_node_info() -> List[NodeInfo]:
     node_infos: List[NodeInfo] = []
