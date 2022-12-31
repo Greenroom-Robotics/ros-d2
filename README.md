@@ -2,7 +2,7 @@
 
 ![Banner](docs/images/banner.png)
 
-Exports ROS2 nodes (publishers, subcribers and nodes) into a [D2](https://d2lang.com/tour/intro/) file so they can be visualised and serialised for later use.
+Exports ROS2 nodes (publishers, subcribers and services) into a [D2](https://d2lang.com/tour/intro/) file so they can be visualised and serialised for later use.
 
 ## Features
 
