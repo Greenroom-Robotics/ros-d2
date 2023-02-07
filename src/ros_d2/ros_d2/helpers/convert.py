@@ -43,7 +43,7 @@ def convert(ros_architecture: RosArchitecture, verbose: bool = False) -> str:
                     # label=concat_strings(sub.types),
                     shape_1=node_info.name,
                     shape_2=sub.name,
-                    direction=Direction.TO,
+                    direction=Direction.FROM,
                 )
             )
         for pub in node_info.pubs:
@@ -52,7 +52,7 @@ def convert(ros_architecture: RosArchitecture, verbose: bool = False) -> str:
                     # label=concat_strings(pub.types),
                     shape_1=node_info.name,
                     shape_2=pub.name,
-                    direction=Direction.FROM,
+                    direction=Direction.TO,
                 )
             )
         for client in node_info.clients:

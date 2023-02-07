@@ -54,9 +54,9 @@ def test_convert():
             "    3d: true",
             "  }",
             "}",
-            "node1 <- topic1",
-            "node1 <- topic2",
-            "node2 -> topic1",
-            "node2 -> topic2",
+            "node1 -> topic1",
+            "node1 -> topic2",
+            "node2 <- topic1",
+            "node2 <- topic2",
         ]
     )
