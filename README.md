@@ -16,6 +16,8 @@ Exports ROS2 nodes (publishers, subcribers and services) into a [D2](https://d2l
 - [ ] Advanced theming
 - [ ] Pytest helpers that ensure your ROS2 System architecture matches that of your .d2 diagram
 - [ ] Better testing on this repo!
+- [x] `ros_d2 export-launch-files` command that will export a .d2 file for each of your launch files
+- [x] `ros_d2 render` command that will render all .d2 files in the current directory
 
 
 ## Examples
@@ -43,6 +45,7 @@ ros_d2 export --help # prints help
 
 ## Usage
 
+### Exporting a diagram
 1. Launch your ROS2 system
 2. Source ROS
 3. Use `ros_d2` to export your runtime ros system to a .d2 file
@@ -51,14 +54,24 @@ ros_d2 export --help # prints help
   ros_d2 export ros-diagram.d2
   ```
 
-4. Render your diagram using `d2` or on the playground using [https://play.d2lang.com/](https://play.d2lang.com/)
+4. Render your diagram using `d2`.
 
   ```bash
-  d2 --layout dagre ros-diagram.d2
+  ros_d2 render # to render ALL .d2 files in the current directory
+  # or...
+  d2 --layout dagre ros-diagram.d2 # to use d2 directly
   ```
 
+### Exporting diagrams for all launch files
+If you want to create a `.d2` and `.svg` alongside each of your ros2 `.launch.py` files. You can use the following script:
 
-
+  ```bash
+  # Source ros: eg) `source /opt/ros/humble/setup.bash`
+  # Build your ros2 workspace: eg) `colcon build`
+  # Source your ros2 workspace: eg) `source install/setup.bash`
+  ros_d2 export-launch-files
+  ros_d2 render
+  ```
 
 
 ## Development
@@ -97,7 +110,7 @@ From the root of this repo:
 
   ```bash
   source install/setup.sh
-  ros2 launch ./src/ros_example_adder_node/launch/launch.py
+  ros2 launch ./src/ros_example_adder_node/launch/example_adder_node.launch.py
   ```
 
 3. Now that ROS is running, lets use `ros_d2` to generate a diagram of all the nodes in the system:
