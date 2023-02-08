@@ -75,7 +75,7 @@ def export_launch_files_command(wait: int):
         ]
         click.echo(f"Running: {' '.join(command_launch)}")
         # Run this command in a subprocess so we can end the process later
-        subprocess.run(command_launch)
+        process = subprocess.Popen(command_launch)
         # Sleep for a bit so the process has time to start
         time.sleep(wait)
 
@@ -89,7 +89,7 @@ def export_launch_files_command(wait: int):
         subprocess.run(command_export)
 
         # Kill the process
-        # process.kill()
+        process.kill()
 
 
 if __name__ == "__main__":
