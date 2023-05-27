@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import List
 
-from py_d2.D2Connection import D2Connection, Direction
-from py_d2.D2Diagram import D2Diagram
-from py_d2.D2Shape import D2Shape, D2Text, Shape
-from py_d2.D2Style import D2Style
+from py_d2 import D2Connection, D2Diagram, D2Shape, D2Style, D2Text, Direction
+from py_d2.shape import Shape
 
 from ros_d2.helpers.get_ros_architecture import RosArchitecture
 
