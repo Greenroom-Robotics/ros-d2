@@ -26,7 +26,7 @@ def convert(ros_architecture: RosArchitecture, verbose: bool = False) -> str:
             shape = D2Shape(
                 name=topic.name,
                 shape=Shape.classs,
-                topic=D2Text(text=concat_strings(topic.types), format=""),
+                topic=D2Text(text=concat_strings(topic.types), formatting=""),
             )
         else:
             shape = D2Shape(name=topic.name, shape=Shape.classs)
